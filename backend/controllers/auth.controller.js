@@ -41,8 +41,12 @@ const login=async(req,res)=>{
     
 
 }
-const sayHi=(req,res)=>{
-   
-res.send("Hello world")
+
+const logout=async(req,res)=>{
+    res.clearCookie('jwt')
+    res.status(200).json({message:"Logged out successfully"})
 }
-module.exports={signup,login,sayHi}
+const sayHi=(req,res)=>{
+res.send(req.user)
+}
+module.exports={signup,login,sayHi,logout}
