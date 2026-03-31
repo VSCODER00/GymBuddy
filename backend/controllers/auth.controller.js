@@ -1,7 +1,8 @@
 const userdb=require('../models/user.model')
+const refreshTokenDb=require('../models/refreshToken.model')
 const bcrypt = require("bcrypt");
+const {generateJwtToken,generateRefreshToken}=require('../utils/jwtTokenGen')
 
-const generateToken=require('../utils/jwtTokenGen')
 const signup=async(req,res)=>{
     const {email,password}=req.body
     if(!email || !password){
@@ -16,9 +17,15 @@ const signup=async(req,res)=>{
         email: email,
         hashed_password: hashedPassword,
     });
-    generateToken(newDetails._id,res)
+    generateJwtToken(newDetails._id,res)
     await newDetails.save()
-    
+    const refreshToken=generateRefreshToken(newDetails._id,res)
+    const refreshTokenDetails = new refreshTokenDb({
+      userId: newDetails._id,
+      refreshToken:refreshToken
+    });
+    await refreshTokenDetails.save()
+
     res.status(201).json({message:"User successfully registered! "})
 }
 
@@ -36,17 +43,62 @@ const login=async(req,res)=>{
     if(!isMatch){
         return res.status(400).json({ message: "Invalid credentials" });
     }
-    generateToken(user._id,res)
+    generateJwtToken(user._id,res)
+    const refreshToken = generateRefreshToken(user._id, res);
+    const refreshTokenDetails = new refreshTokenDb({
+      userId: user._id,
+      refreshToken: refreshToken,
+    });
+    await refreshTokenDetails.save();
     return res.status(200).json({ message: "Signed in successfully"});
     
 
 }
 
 const logout=async(req,res)=>{
+    try{
+    const refreshToken = req.cookies.refreshToken;
+    if(refreshToken){
+        await refreshTokenDb.deleteOne({refreshToken})
+    }
     res.clearCookie('jwt')
+    res.clearCookie('refreshToken')
     res.status(200).json({message:"Logged out successfully"})
+}
+    catch(error){
+        console.log(error)
+    }
+}
+
+const refreshTheTokens=async(req,res)=>{
+    const userRefreshToken=req.cookies.refreshToken
+    if(!userRefreshToken){
+        return res.status(401).json({message:"Please login again"})
+    }
+    const refreshTokenFromDB = await refreshTokenDb.findOne({
+      refreshToken: userRefreshToken,
+    });
+    if(!refreshTokenFromDB){
+        return res.status(401).json({ message: "Please login again" });
+    }
+    try{
+    const decoded = jwt.verify(userRefreshToken, REFRESH_SECRET);
+    generateJwtToken(decoded.userId, res);
+    const newRefreshToken = generateRefreshToken(decoded.userId, res);
+    await refreshTokenDb.deleteOne({ refreshToken: userRefreshToken });
+    await refreshTokenDb.create({
+      userId: decoded.userId,
+      refreshToken: newRefreshToken,
+    });
+    return res.status(200).json({ message: "Token refreshed successfully" });
+    }
+    catch(error){
+        return res.status(403).json({ message: "Invalid refresh token" });
+    }
+
 }
 const sayHi=(req,res)=>{
 res.send(req.user)
 }
-module.exports={signup,login,sayHi,logout}
+
+module.exports={signup,login,sayHi,logout,refreshTheTokens}
