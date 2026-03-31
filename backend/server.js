@@ -2,10 +2,11 @@ require("dotenv").config();
 const express=require('express')
 const mongoose=require('mongoose')
 const app=express()
+const cookieParser = require("cookie-parser");
 const mongoDBURL = process.env.MONGODB_URL;
-app.use(express.json());
 const authRoutes=require("./routes/auth.routes")
-
+app.use(express.json());
+app.use(cookieParser());
 app.get('/',(req,res)=>{
     res.send("hello world")
 })

@@ -1,6 +1,7 @@
 const userdb=require('../models/user.model')
 const bcrypt = require("bcrypt");
 
+const generateToken=require('../utils/jwtTokenGen')
 const signup=async(req,res)=>{
     const {email,password}=req.body
     if(!email || !password){
@@ -15,6 +16,7 @@ const signup=async(req,res)=>{
         email: email,
         hashed_password: hashedPassword,
     });
+    generateToken(newDetails._id,res)
     await newDetails.save()
     
     res.status(201).json({message:"User successfully registered! "})
@@ -34,8 +36,13 @@ const login=async(req,res)=>{
     if(!isMatch){
         return res.status(400).json({ message: "Invalid credentials" });
     }
-    return res.status(200).json({ message: "Signed in successfully" });
+    generateToken(user._id,res)
+    return res.status(200).json({ message: "Signed in successfully"});
     
 
 }
-module.exports={signup,login}
+const sayHi=(req,res)=>{
+   
+res.send("Hello world")
+}
+module.exports={signup,login,sayHi}
