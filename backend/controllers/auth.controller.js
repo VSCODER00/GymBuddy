@@ -1,7 +1,10 @@
 const userdb=require('../models/user.model')
 const refreshTokenDb=require('../models/refreshToken.model')
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 const {generateJwtToken,generateRefreshToken}=require('../utils/jwtTokenGen')
+const REFRESH_SECRET = process.env.REFRESH_TOKEN_SECRET;
 
 const signup=async(req,res)=>{
     const {email,password}=req.body
