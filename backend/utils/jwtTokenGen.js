@@ -5,7 +5,7 @@ const app = express();
 require("dotenv").config(); 
 
 const JWT_SECRET = process.env.JWT_SECRET;
-const REFRESH_SECRET= process.env.REFRESH_SECRET;
+const REFRESH_SECRET = process.env.REFRESH_TOKEN_SECRET;
 
 const generateJwtToken=(userId,res)=>{
     const token=jwt.sign({userId},JWT_SECRET,{expiresIn:"15m"})

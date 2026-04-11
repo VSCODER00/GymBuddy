@@ -96,7 +96,7 @@ const refreshTheTokens=async(req,res)=>{
     return res.status(200).json({ message: "Token refreshed successfully" });
     }
     catch(error){
-        return res.status(403).json({ message: "Invalid refresh token" });
+        return res.status(403).json({ message: error.message });
     }
 
 }
