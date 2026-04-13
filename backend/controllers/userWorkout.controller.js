@@ -59,13 +59,13 @@ const setUserWorkout=async(req,res)=>{
                         "Squats":{"sets":sets,"reps":reps},
                         "Bench Press":{"sets":sets,"reps":reps},
                         "Seated DB Shoulder Press":{"sets":sets,"reps":reps},
-                        "Rows":{"sets":sets,"reps":reps},
+                        "Bent Over Barbell Row":{"sets":sets,"reps":reps},
                         "Hanging Leg Raises":{"sets":sets,"reps":reps}
                     },
                     "Day2":{
-                        "Deadlifts":{"sets":sets,"reps":reps},
+                        "Deadlift":{"sets":sets,"reps":reps},
                         "Overhead Press":{"sets":sets,"reps":reps},
-                        "DB incline Press":{"sets":sets,"reps":reps},
+                        "Incline Dumbbell Press":{"sets":sets,"reps":reps},
                         "Planks":{"sets":sets,"reps":reps},
                     }
                 }
@@ -75,17 +75,17 @@ const setUserWorkout=async(req,res)=>{
                     "Day1":{
                         "Squats":{"sets":sets,"reps":reps},
                         "Overhead Press":{"sets":sets,"reps":reps},
-                        "Rows":{"sets":sets,"reps":reps},
+                        "Bent Over Barbell Row":{"sets":sets,"reps":reps},
                         "Dips":{"sets":sets,"reps":reps},
                     },
                     "Day2":{
                         "Bench Press":{"sets":sets,"reps":reps},
                         "Pull Ups":{"sets":sets,"reps":reps},
-                        "Split Squats":{"sets":sets,"reps":reps},
+                        "Split Squat":{"sets":sets,"reps":reps},
                         "Planks":{"sets":sets,"reps":reps},
                     },
                     "Day3":{
-                        "Deadlifts":{"sets":sets,"reps":reps},
+                        "Deadlift":{"sets":sets,"reps":reps},
                         "Seated DB Overhead Press":{"sets":sets,"reps":reps},
                         "Push Ups":{"sets":sets,"reps":reps},
                         "Hanging Leg Raises":{"sets":sets,"reps":reps},
@@ -104,26 +104,26 @@ const setUserWorkout=async(req,res)=>{
                 },
                 "Day2":{
                     "Squats":{"sets":sets,"reps":reps},
-                    "Split Squats":{"sets":sets,"reps":reps},
-                    "Hip Thrust":{"sets":sets,"reps":reps},
-                    "Leg Curls":{"sets":sets,"reps":reps},
+                    "Split Squat":{"sets":sets,"reps":reps},
+                    "Barbell Hip Thrust":{"sets":sets,"reps":reps},
+                    "Leg Curl":{"sets":sets,"reps":reps},
                     "Calf Raises":{"sets":sets,"reps":reps},
                     "Core Work":{"sets":sets,"reps":reps},
                 },
                 "Day3":{
                     "Bent Over Barbell Row":{"sets":sets,"reps":reps},
-                    "Weight Pull Ups":{"sets":sets,"reps":reps},
-                    "Incline DB Bench Press":{"sets":sets,"reps":reps},
+                    "Weighted Pull Ups":{"sets":sets,"reps":reps},
+                    "Incline Dumbbell Press":{"sets":sets,"reps":reps},
                     "Seated Arnold Press":{"sets":sets,"reps":reps},
                     "Lateral Raises":{"sets":sets,"reps":reps},
                     "Tricep Kickbacks":{"sets":sets,"reps":reps},
                 },
                 "Day4":{
-                    "Deadlifts":{"sets":sets,"reps":reps},
+                    "Deadlift":{"sets":sets,"reps":reps},
                     "Good Mornings":{"sets":sets,"reps":reps},
                     "Leg Press":{"sets":sets,"reps":reps},
-                    "Stiff-Leg Deadlift":{"sets":sets,"reps":reps},
-                    "Leg Extensions":{"sets":sets,"reps":reps},
+                    "Stiff Leg Deadlift":{"sets":sets,"reps":reps},
+                    "Leg Extension":{"sets":sets,"reps":reps},
                     "Core Work":{"sets":sets,"reps":reps},
                 }
                 
@@ -135,7 +135,7 @@ const setUserWorkout=async(req,res)=>{
                     "Day1":{
                         "Squats":{"sets":sets,"reps":reps},
                         "Bench Press":{"sets":sets,"reps":reps},
-                        "Bulgarian Split-Squat":{"sets":sets,"reps":reps},
+                        "Bulgarian Split Squat":{"sets":sets,"reps":reps},
                         "Overhead Press":{"sets":sets,"reps":reps},
                         "Bar Dips":{"sets":sets,"reps":reps},
                     },
@@ -168,7 +168,7 @@ const setUserWorkout=async(req,res)=>{
                     "Day1":{
                         "Squats":{"sets":sets,"reps":reps},
                         "Bench Press":{"sets":sets,"reps":reps},
-                        "Bulgarian Split-Squat":{"sets":sets,"reps":reps},
+                        "Bulgarian Split Squat":{"sets":sets,"reps":reps},
                         "Overhead Press":{"sets":sets,"reps":reps},
                         "Bar Dips":{"sets":sets,"reps":reps},
                     },
@@ -202,15 +202,15 @@ const setUserWorkout=async(req,res)=>{
             if(availability===5){
                 split_structure={
                     "Day1":{
-                        "Flat Bench Press":{"sets":sets,"reps":reps},
-                        "Incline DB Press":{"sets":sets,"reps":reps},
+                        "Bench Press":{"sets":sets,"reps":reps},
+                        "Incline Dumbbell Press":{"sets":sets,"reps":reps},
                         "Military Press":{"sets":sets,"reps":reps},
                         "Weighted Bar Dips":{"sets":sets,"reps":reps},
                         "Triceps Pushdown":{"sets":sets,"reps":reps}
                     },
                     "Day2":{
                         "Deadlift":{"sets":sets,"reps":reps},
-                        "Weighted Pullups":{"sets":sets,"reps":reps},
+                        "Weighted Pull Ups":{"sets":sets,"reps":reps},
                         "Lat Pulldown":{"sets":sets,"reps":reps},
                         "Seated Machine Row":{"sets":sets,"reps":reps},
                         "Barbell Curl":{"sets":sets,"reps":reps}
@@ -226,17 +226,18 @@ const setUserWorkout=async(req,res)=>{
                     "Day4":{
                         "Incline Bench Press":{"sets":sets,"reps":reps},
                         "Pec Deck Fly":{"sets":sets,"reps":reps},
-                        "Bent-over Cable Fly":{"sets":sets,"reps":reps},
+                        "Bent Over Cable Fly":{"sets":sets,"reps":reps},
                         "DB Overhead Press":{"sets":sets,"reps":reps},
                         "1-arm Overhead Extension":{"sets":sets,"reps":reps},
                         "1-arm Crossbody Pushdown":{"sets":sets,"reps":reps}
                     },
                     "Day5":{
-                        "Pullups":{"sets":sets,"reps":reps},
+                        "Pull Ups":{"sets":sets,"reps":reps},
                         "Close Grip Pulldown":{"sets":sets,"reps":reps},
                         "Chest Supported T-Row":{"sets":sets,"reps":reps},
-                        "Machine / Cable Lat Pullover":{"sets":sets,"reps":reps},
-                        "Upright Row / Shrug":{"sets":sets,"reps":reps},
+                        "Machine Cable Lat Pullover":{"sets":sets,"reps":reps},
+                        "Upright Row":{"sets":sets,"reps":reps},
+                        "Shrug":{"sets":sets,"reps":reps},
                         "Preacher Curl":{"sets":sets,"reps":reps},
                         "Reverse Curl":{"sets":sets,"reps":reps}
                     },
@@ -245,15 +246,15 @@ const setUserWorkout=async(req,res)=>{
             else if(availability===6 || availability===7){
                 split_structure={
                     "Day1":{
-                        "Flat Bench Press":{"sets":sets,"reps":reps},
-                        "Incline DB Press":{"sets":sets,"reps":reps},
+                        "Bench Press":{"sets":sets,"reps":reps},
+                        "Incline Dumbbell Press":{"sets":sets,"reps":reps},
                         "Military Press":{"sets":sets,"reps":reps},
                         "Weighted Bar Dips":{"sets":sets,"reps":reps},
                         "Triceps Pushdown":{"sets":sets,"reps":reps}
                     },
                     "Day2":{
                         "Deadlift":{"sets":sets,"reps":reps},
-                        "Weighted Pullups":{"sets":sets,"reps":reps},
+                        "Weighted Pull Ups":{"sets":sets,"reps":reps},
                         "Lat Pulldown":{"sets":sets,"reps":reps},
                         "Seated Machine Row":{"sets":sets,"reps":reps},
                         "Barbell Curl":{"sets":sets,"reps":reps}
@@ -262,24 +263,25 @@ const setUserWorkout=async(req,res)=>{
                         "Back Squat":{"sets":sets,"reps":reps},
                         "Leg Press":{"sets":sets,"reps":reps},
                         "Smith Machine Lunges":{"sets":sets,"reps":reps},
-                        "Hip Thrust":{"sets":sets,"reps":reps},
+                        "Barbell Hip Thrust":{"sets":sets,"reps":reps},
                         "Hanging Knee Raise":{"sets":sets,"reps":reps},
                         "Forearm Plank":{"sets":sets,"reps":reps}
                     },
                     "Day4":{
                         "Incline Bench Press":{"sets":sets,"reps":reps},
                         "Pec Deck Fly":{"sets":sets,"reps":reps},
-                        "Bent-over Cable Fly":{"sets":sets,"reps":reps},
+                        "Bent Over Cable Fly":{"sets":sets,"reps":reps},
                         "DB Overhead Press":{"sets":sets,"reps":reps},
                         "1-arm Overhead Extension":{"sets":sets,"reps":reps},
                         "1-arm Crossbody Pushdown":{"sets":sets,"reps":reps}
                     },
                     "Day5":{
-                        "Pullups":{"sets":sets,"reps":reps},
+                        "Pull Ups":{"sets":sets,"reps":reps},
                         "Close Grip Pulldown":{"sets":sets,"reps":reps},
                         "Chest Supported T-Row":{"sets":sets,"reps":reps},
-                        "Machine/Cable Lat Pullover":{"sets":sets,"reps":reps},
-                        "Upright Row/Shrug":{"sets":sets,"reps":reps},
+                        "Machine Cable Lat Pullover":{"sets":sets,"reps":reps},
+                        "Upright Row":{"sets":sets,"reps":reps},
+                        "Shrug":{"sets":sets,"reps":reps},
                         "Preacher Curl":{"sets":sets,"reps":reps},
                         "Reverse Curl":{"sets":sets,"reps":reps}
                     },
@@ -297,14 +299,14 @@ const setUserWorkout=async(req,res)=>{
         else if(split_type==="Bro"){
             split_structure={
                 "Day1":{
-                    "Barbell Bench Press":{"sets":sets,"reps":reps},
-                    "Incline DB Bench Press":{"sets":sets,"reps":reps},
+                    "Bench Press":{"sets":sets,"reps":reps},
+                    "Incline Dumbbell Press":{"sets":sets,"reps":reps},
                     "Cable Fly High to Low":{"sets":sets,"reps":reps},
                     "Cable Fly Low to High":{"sets":sets,"reps":reps},
                     "Dips":{"sets":sets,"reps":reps}
                 },
                 "Day2":{
-                    "Deadlifts":{"sets":sets,"reps":reps},
+                    "Deadlift":{"sets":sets,"reps":reps},
                     "Pull Ups":{"sets":sets,"reps":reps},
                     "Bent Over Barbell Row":{"sets":sets,"reps":reps},
                     "Seated Close Grip Row":{"sets":sets,"reps":reps},
@@ -316,27 +318,27 @@ const setUserWorkout=async(req,res)=>{
                     "Concentration Curl":{"sets":sets,"reps":reps},
                     "Close Grip Bench":{"sets":sets,"reps":reps},
                     "Tricep Overhead Extension":{"sets":sets,"reps":reps},
-                    "Tricep Kickback":{"sets":sets,"reps":reps},
+                    "Tricep Kickbacks":{"sets":sets,"reps":reps},
                     "Hanging Leg Raises":{"sets":sets,"reps":reps},
                     "Plank":{"sets":sets,"reps":reps},
                     "Side Plank":{"sets":sets,"reps":reps}
                 },
                 "Day4":{
-                    "Back Squats":{"sets":sets,"reps":reps},
-                    "Stiff-Leg Deadlifts":{"sets":sets,"reps":reps},
-                    "Barbell Hip Thrusts":{"sets":sets,"reps":reps},
-                    "Split Squats":{"sets":sets,"reps":reps},
-                    "Leg Extensions":{"sets":sets,"reps":reps},
-                    "Leg Curls":{"sets":sets,"reps":reps},
+                    "Back Squat":{"sets":sets,"reps":reps},
+                    "Stiff Leg Deadlift":{"sets":sets,"reps":reps},
+                    "Barbell Hip Thrust":{"sets":sets,"reps":reps},
+                    "Split Squat":{"sets":sets,"reps":reps},
+                    "Leg Extension":{"sets":sets,"reps":reps},
+                    "Leg Curl":{"sets":sets,"reps":reps},
                     "Calf Raises":{"sets":sets,"reps":reps}
                 },
                 "Day5":{
                     "Standing Overhead Press":{"sets":sets,"reps":reps},
                     "Seated Arnold Press":{"sets":sets,"reps":reps},
                     "Lateral Raises":{"sets":sets,"reps":reps},
-                    "Front Raises:":{"sets":sets,"reps":reps},
-                    "Upright Rows":{"sets":sets,"reps":reps},
-                    "Shrugs":{"sets":sets,"reps":reps}
+                    "Front Raises":{"sets":sets,"reps":reps},
+                    "Upright Row":{"sets":sets,"reps":reps},
+                    "Shrug":{"sets":sets,"reps":reps}
                 },
             }
         }
